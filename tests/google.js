@@ -11,6 +11,7 @@ module.exports = {
     const resultsPageQuerySelector = `#searchform input[name="q"][value="${mainQuery}"]`;
     const resultsPageLanguageSelector = '[aria-label="Search Italian pages"]';
     const resultsPageLastUpdateSelector = '[aria-label="Past month"]';
+    
 
     browser
       .url("https://www.google.com/advanced_search")
@@ -19,6 +20,7 @@ module.exports = {
       .click(languageDropDownValueSelector)
       .click(lastUpdateDropDownOpenerSelector)
       .click(lastUpdateDropDownValueSelector)
+    //   .perform(() => { debugger; })
       .click(submitButtonSelector)
       .assert.urlContains("as_q=Elon+Musk", "Param: Query is Elon Musk")
       .assert.urlContains("lr=lang_it", "Param: Language is Italian")
