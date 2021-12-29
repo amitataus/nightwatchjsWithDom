@@ -1,5 +1,5 @@
 module.exports = {
-  "@tags": ["google"],
+//   "@tags": ["google"],
   "Google Advanced Search: Elon Musk"(browser) {
     const mainQueryInputSelector = 'input[name="as_q"]';
     const mainQuery = "Elon Musk";
@@ -8,9 +8,12 @@ module.exports = {
     const lastUpdateDropDownOpenerSelector = "#as_qdr_button";
     const lastUpdateDropDownValueSelector = '.goog-menuitem[value="m"]';
     const submitButtonSelector = '.jfk-button[type="submit"]';
+
     const resultsPageQuerySelector = `#searchform input[name="q"][value="${mainQuery}"]`;
     const resultsPageLanguageSelector = '[aria-label="Search Italian pages"]';
     const resultsPageLastUpdateSelector = '[aria-label="Past month"]';
+
+
     
 
     browser
@@ -40,3 +43,5 @@ module.exports = {
       .saveScreenshot("tests_output/google.png");
   },
 };
+
+
