@@ -8,6 +8,6 @@
 3. Can be run on multiple browsers
 4. URLs like <https://nightwatchjs.org/>, and https://google.com
 are used for learning purpose.
-5. URLs like [Nightwatchjs] (https://nightwatchjs.org/), and [Google] (https://google.com)
+5. URLs like [Nightwatchjs](https://nightwatchjs.org/), and [Google](https://google.com)
 are used for learning purpose.
 
