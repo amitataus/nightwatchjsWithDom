@@ -1,0 +1,18 @@
+# language: node_js
+# node_js:
+#   - "14"
+# dist: xenial
+# services:
+#   - xvfb
+# language: objective-c
+# addons:
+#   chrome: stable
+# before_install:
+#   - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
+#   ⋮
+
+
+
+
+# script: 
+#   - xvfb-run npm test
