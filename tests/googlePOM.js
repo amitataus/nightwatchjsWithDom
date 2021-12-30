@@ -5,8 +5,8 @@ module.exports = {
     const mainQuery = "Elon Musk";
     const page = browser.page.googleAdvancedSearch();
 
-    page.
-        navigate()
+    page
+        .navigate()
         .setQuery(mainQuery)
         .selectFilter('@languageDropDown', 'lang_it')
         .selectFilter('@lastUpdateDropDown', 'm')
@@ -18,4 +18,5 @@ module.exports = {
         .assert.urlContains("as_qdr=m", "Param: Time Period is last month")
 
 }
+
 };

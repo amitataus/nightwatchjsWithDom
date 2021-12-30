@@ -23,38 +23,39 @@ module.exports = {
 
   test_settings: {
     default: {
-      disable_error_log: false,
+      disable_error_log: true,
       launch_url: 'https://nightwatchjs.org',
 
       screenshots: {
-        enabled: false,
-        path: 'screens',
-        on_failure: true
+        enabled: true,
+        path: 'tests_output/screenshots',
+        on_failure: true,
+        on_error: true
       },
 
-      desiredCapabilities: {
-        browserName : 'firefox'
-      },
+      // desiredCapabilities: {
+      //   browserName : 'firefox'
+      // },
 
-      webdriver: {
-        start_process: true,
-        server_path: (Services.geckodriver ? Services.geckodriver.path : '')
-      }
+      // webdriver: {
+      //   start_process: true,
+      //   server_path: (Services.geckodriver ? Services.geckodriver.path : '')
+      // }
     },
 
-    safari: {
-      desiredCapabilities : {
-        browserName : 'safari',
-        alwaysMatch: {
-          acceptInsecureCerts: false
-        }
-      },
-      webdriver: {
-        port: 4445,
-        start_process: true,
-        server_path: '/usr/bin/safaridriver'
-      }
-    },
+    // safari: {
+    //   desiredCapabilities : {
+    //     browserName : 'safari',
+    //     alwaysMatch: {
+    //       acceptInsecureCerts: false
+    //     }
+    //   },
+    //   webdriver: {
+    //     port: 4445,
+    //     start_process: true,
+    //     server_path: '/usr/bin/safaridriver'
+    //   }
+    // },
 
     firefox: {
       desiredCapabilities : {
@@ -73,6 +74,31 @@ module.exports = {
       webdriver: {
         start_process: true,
         port: 4444,
+        server_path: (Services.geckodriver ? Services.geckodriver.path : ''),
+        cli_args: [
+          // very verbose geckodriver logs
+          // '-vv'
+        ]
+      }
+    },
+
+    firefox_headless: {
+      desiredCapabilities : {
+        browserName : 'firefox',
+        alwaysMatch: {
+          acceptInsecureCerts: true,
+          'moz:firefoxOptions': {
+            args: [
+              '-headless',
+              // '-verbose'
+            ]
+          }
+        }
+
+      },
+      webdriver: {
+        start_process: true,
+        port: 4445,
         server_path: (Services.geckodriver ? Services.geckodriver.path : ''),
         cli_args: [
           // very verbose geckodriver logs
@@ -108,28 +134,55 @@ module.exports = {
       }
     },
 
-    edge: {
+    chrome_headless: {
       desiredCapabilities : {
-        browserName : 'MicrosoftEdge',
-        'ms:edgeOptions' : {
+        browserName : 'chrome',
+        'goog:chromeOptions' : {
+          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
+          //
+          // This tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
           w3c: false,
-          // More info on EdgeDriver: https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options
           args: [
-            //'--headless'
+            //'--no-sandbox',
+            //'--ignore-certificate-errors',
+            //'--allow-insecure-localhost',
+            '--headless'
           ]
         }
       },
 
       webdriver: {
         start_process: true,
-        // Download msedgedriver from https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/
-        //  and set the location below:
-        server_path: '',
+        port: 9516,
+        server_path: (Services.chromedriver ? Services.chromedriver.path : ''),
         cli_args: [
           // --verbose
         ]
       }
     },
+
+    // edge: {
+    //   desiredCapabilities : {
+    //     browserName : 'MicrosoftEdge',
+    //     'ms:edgeOptions' : {
+    //       w3c: false,
+    //       // More info on EdgeDriver: https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options
+    //       args: [
+    //         //'--headless'
+    //       ]
+    //     }
+    //   },
+
+    //   webdriver: {
+    //     start_process: true,
+    //     // Download msedgedriver from https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/
+    //     //  and set the location below:
+    //     server_path: '',
+    //     cli_args: [
+    //       // --verbose
+    //     ]
+    //   }
+    // },
 
     //////////////////////////////////////////////////////////////////////////////////
     // Configuration for when using the browserstack.com cloud service               |
@@ -274,24 +327,33 @@ function loadServices() {
 
 // module.exports = {
 //   "src_folders" : ["tests"],
+//   "page_objects_path" : ['page-objects'],
 
 //   "webdriver" : {
 //     "start_process": true,
 //     "server_path": "node_modules/.bin/chromedriver",
-//     "port": 9515
+//     "port": 9514
 //   },
 
 //   "test_settings" : {
 //     "default" : {
+//       "screenshots":{
+//         'enabled': true,
+//         'on_failure': true,
+//         'on_error': true,
+//         'path': 'tests_output/screenshots'
+//       },
 //       "desiredCapabilities": {
-//         "browserName": "chrome"
+//         "browserName": "chrome",
+//         "chromeOptions":{
+//             'args': ['--headless']
 //       }
 //     }
-//     ,
+//   },
 //     "firefox" : {
 //       "desiredCapabilities": {
 //         "browserName": "firefox"
 //       }
 //     }
-//   }
 // }
+// };

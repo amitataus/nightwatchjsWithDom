@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "debug": "node --inspect-brk node_modules/.bin/nightwatch",
-    "test": "nightwatch"
+    "test": "nightwatch -e chrome_headless",
+    "firefox": "nightwatch -e firefox",
+    "firefox_headless": "nightwatch -e firefox_headless",
+    "chrome": "nightwatch -e chrome",
+    "chrome_headless": "nightwatch -e chrome_headless",
+    "all": "nightwatch -e chrome_headless,chrome,firefox,firefox_headless"
   },
   "keywords": [],
   "author": "",
