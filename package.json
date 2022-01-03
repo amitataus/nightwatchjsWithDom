@@ -10,7 +10,10 @@
     "firefox_headless": "nightwatch -e firefox_headless",
     "chrome": "nightwatch -e chrome",
     "chrome_headless": "nightwatch -e chrome_headless",
-    "all": "nightwatch -e chrome_headless,chrome,firefox,firefox_headless"
+    "all": "nightwatch -e chrome_headless,chrome,firefox,firefox_headless",
+    "browserstack_chrome": "nightwatch -e browserstack.chrome",
+    "browserstack_firefox": "nightwatch -e browserstack.firefox",
+    "browserstack_ios": "nightwatch -e browserstack.ios"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +22,8 @@
     "chromedriver": "^96.0.0",
     "geckodriver": "^3.0.1",
     "nightwatch": "^1.7.13"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0"
   }
 }
