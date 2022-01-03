@@ -12,4 +12,6 @@ are used for learning purpose.
 are used for learning purpose.
 
 ### ***This project contains some other things as well***
-
+* First Item
+* Second Item
+* Third Item
