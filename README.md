@@ -11,3 +11,5 @@ are used for learning purpose.
 5. URLs like [Nightwatchjs](https://nightwatchjs.org/), and [Google](https://google.com)
 are used for learning purpose.
 
+### ***This project contains some other things as well***
+
