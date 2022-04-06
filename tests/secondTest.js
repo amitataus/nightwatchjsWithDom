@@ -1,5 +1,5 @@
 module.exports  = {
-    'my first test case' : function(browser){
+    'my second test case' : function(browser){
         browser
         .url('https://news.ycombinator.com/')
         .waitForElementVisible('.hnname')
