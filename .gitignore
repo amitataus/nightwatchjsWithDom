@@ -4,4 +4,5 @@ tests_output
 *.env
 *.yml
 .DS_Store
+.env
 
